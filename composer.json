@@ -1,0 +1,85 @@
+{
+    "name": "rawand201/filament-connection-badge",
+    "type": "library",
+    "description": "A Filament topbar badge that shows real-time network quality (full/medium/low/offline) with a live ping graph tooltip and a full-screen offline overlay. Works with Filament v4 and v5, supports RTL and multi-language.",
+    "keywords": [
+        "filament",
+        "filamentphp",
+        "laravel",
+        "connection",
+        "network",
+        "badge",
+        "offline",
+        "online",
+        "status",
+        "indicator",
+        "ping",
+        "latency",
+        "rtl"
+    ],
+    "homepage": "https://github.com/RawanD201/filament-connection-badge",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/RawanD201/filament-connection-badge/issues",
+        "source": "https://github.com/RawanD201/filament-connection-badge"
+    },
+    "authors": [
+        {
+            "name": "RawanD201",
+            "email": "rawandrasool@proton.me",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "filament/filament": "^4.0|^5.0",
+        "illuminate/contracts": "^10.0|^11.0|^12.0|^13.0",
+        "spatie/laravel-package-tools": "^1.15.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3",
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^7.9|^8.0",
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "pestphp/pest": "^2.1|^3.0",
+        "pestphp/pest-plugin-arch": "^2.0|^3.0",
+        "pestphp/pest-plugin-laravel": "^2.0|^3.0",
+        "phpstan/phpstan": "^2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rawand\\FilamentConnectionBadge\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Rawand\\FilamentConnectionBadge\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=1G",
+        "sync-assets": [
+            "@php -r \"copy('resources/js/filament-connection-badge.js', 'resources/dist/filament-connection-badge.js');\"",
+            "@php -r \"copy('resources/css/filament-connection-badge.css', 'resources/dist/filament-connection-badge.css');\""
+        ],
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rawand\\FilamentConnectionBadge\\FilamentConnectionBadgeServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
