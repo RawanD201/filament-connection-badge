@@ -5,27 +5,9 @@
 [![License](https://img.shields.io/packagist/l/rawand201/filament-connection-badge.svg?style=flat-square)](https://packagist.org/packages/rawand201/filament-connection-badge)
 [![CI](https://github.com/RawanD201/filament-connection-badge/actions/workflows/ci.yml/badge.svg)](https://github.com/RawanD201/filament-connection-badge/actions/workflows/ci.yml)
 
-A drop-in **connection status badge** for Filament panels — shows a live signal-bars icon in the topbar next to the user avatar, a Discord-style live ping graph on hover, and a full-screen overlay when the connection drops.
+A drop-in **connection status badge** for Filament panels — shows a live signal-bars icon in the topbar next to the user avatar, a live ping graph on hover, and a full-screen overlay when the connection drops.
 
 Works with **Filament v4 and v5**, uses Filament's design tokens so it follows your panel's theme and dark mode automatically, and fully supports **RTL** and multi-language UIs.
-
----
-
-## Features
-
-- **Live signal bars** in the topbar — full / medium / low / offline, colored with Filament's `--success-*`, `--warning-*`, `--danger-*` tokens
-- **Real heartbeat endpoint** — the package registers its own JSON `/_filament-connection-badge/ping` route, so the badge actually proves your **Laravel application** is responding (PHP + router + middleware), not just the static file server
-- **Discord-style hover tooltip** with:
-  - Live sparkline of the last N ping samples
-  - Average ping, last ping, packet-loss rate
-  - Host indicator
-- **Full-screen offline overlay** that auto-dismisses when the connection comes back
-- **Filament v4 & v5** — one package, single code path
-- **Dark mode** — all colors follow the panel theme via CSS variables
-- **RTL support** — built with CSS logical properties; numbers and the ping graph stay LTR (`unicode-bidi: isolate`) so measurements stay readable in RTL UIs
-- **i18n** — ships with English, Arabic, and Kurdish Sorani translations
-- **Configurable** — enable/disable, render hook, optional `can()` permission, optional heartbeat throttling, latency thresholds, route prefix & middleware, ping interval, history size, label visibility, overlay on/off
-- **Zero build step** — no Vite, no npm; assets are registered via `FilamentAsset`
 
 ---
 
@@ -129,6 +111,24 @@ FILAMENT_CONNECTION_BADGE_ENABLED=false
 
 ---
 
+## Features
+
+- **Live signal bars** in the topbar — full / medium / low / offline, colored with Filament's `--success-*`, `--warning-*`, `--danger-*` tokens
+- **Real heartbeat endpoint** — the package registers its own JSON `/_filament-connection-badge/ping` route, so the badge actually proves your **Laravel application** is responding (PHP + router + middleware), not just the static file server
+- **Discord-style hover tooltip** with:
+  - Live sparkline of the last N ping samples
+  - Average ping, last ping, packet-loss rate
+  - Host indicator
+- **Full-screen offline overlay** that auto-dismisses when the connection comes back
+- **Filament v4 & v5** — one package, single code path
+- **Dark mode** — all colors follow the panel theme via CSS variables
+- **RTL support** — built with CSS logical properties; numbers and the ping graph stay LTR (`unicode-bidi: isolate`) so measurements stay readable in RTL UIs
+- **i18n** — ships with English, Arabic, and Kurdish Sorani translations
+- **Configurable** — enable/disable, render hook, optional `can()` permission, optional heartbeat throttling, latency thresholds, route prefix & middleware, ping interval, history size, label visibility, overlay on/off
+- **Zero build step** — no Vite, no npm; assets are registered via `FilamentAsset`
+
+---
+
 ## How it works
 
 - On every Filament page, a tiny Alpine.js component is rendered via the configured render hook (default `panels::user-menu.before`, same as `PanelsRenderHook::USER_MENU_BEFORE`).
@@ -168,23 +168,11 @@ You can also set `route.throttle` in config (or `FILAMENT_CONNECTION_BADGE_THROT
 
 ## Localization
 
-English (`en`), Arabic (`ar`), and Kurdish Sorani (`ckb`) are bundled. To add another language, publish the translations and copy any of the files:
+To add another language, publish the translations and copy any of the files:
 
 ```bash
 php artisan vendor:publish --tag="filament-connection-badge-translations"
 ```
-
-Then add `lang/vendor/filament-connection-badge/{locale}/messages.php`.
-
-### RTL
-
-The badge automatically mirrors in RTL panels:
-- All CSS uses logical properties (`inset-inline-end`, `padding-inline`, `border-block-end`, …).
-- In RTL, the tooltip opens from the inline-end side of the badge.
-- Numeric values (`89 ms`, `12.5%`) and the ping graph keep LTR rendering via `unicode-bidi: isolate` / `direction: ltr` so they stay readable.
-
-For Arabic, just set `APP_LOCALE=ar` — Filament's own `ar` and `ckb` locales already return `direction => 'rtl'` so the entire panel (and the badge) mirrors with no extra config.
-
 ---
 
 ## Customization
@@ -195,8 +183,6 @@ For Arabic, just set `APP_LOCALE=ar` — Filament's own `ar` and `ckb` locales a
 php artisan vendor:publish --tag="filament-connection-badge-views"
 ```
 
-Edit `resources/views/vendor/filament-connection-badge/badge.blade.php`.
-
 ### Override the styles
 
 You can either:
@@ -204,12 +190,6 @@ You can either:
 - Publish and edit the asset files, or
 - Simply add your own CSS targeting the `.fcb-*` classes — every color is declared with `var(--gray-*)` / `var(--success-*)` / etc. so they automatically track your panel's theme.
 
-### Package development (this repo)
-
-- **JavaScript** — `resources/js/filament-connection-badge.js`
-- **CSS** — `resources/css/filament-connection-badge.css`
-
-Filament loads those paths directly (no npm/Vite). `resources/dist/` mirrors the same files for Spatie’s optional `vendor:publish` asset tag; after editing JS/CSS run:
 
 ```bash
 composer sync-assets
@@ -224,19 +204,16 @@ composer test
 composer analyse   # PHPStan (src/)
 ```
 
----
 
 ## Changelog
 
 See [CHANGELOG](CHANGELOG.md).
 
----
 
 ## Credits
 
 - [RawanD201](https://github.com/RawanD201)
 
----
 
 ## License
 
