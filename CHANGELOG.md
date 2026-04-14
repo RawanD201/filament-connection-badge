@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-Not yet published on Packagist. When you tag `v1.0.0`, rename this section to `## [1.0.0] - YYYY-MM-DD` and add a new empty `[Unreleased]` above it.
+## [1.0.0] - 2026-04-14
 
 ### Added
 
