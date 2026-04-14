@@ -4,7 +4,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rawand201/filament-connection-badge.svg?style=flat-square)](https://packagist.org/packages/rawand201/filament-connection-badge)
 [![Total Downloads](https://img.shields.io/packagist/dt/rawand201/filament-connection-badge.svg?style=flat-square)](https://packagist.org/packages/rawand201/filament-connection-badge)
-[![License](https://img.shields.io/packagist/l/rawand201/filament-connection-badge.svg?style=flat-square)](https://packagist.org/packages/rawand201/filament-connection-badge)
+[![License](https://img.shields.io/github/license/RawanD201/filament-connection-badge.svg?style=flat-square)](LICENSE.md)
 [![CI](https://github.com/RawanD201/filament-connection-badge/actions/workflows/ci.yml/badge.svg)](https://github.com/RawanD201/filament-connection-badge/actions/workflows/ci.yml)
 
 A drop-in **connection status badge** for Filament panels — shows a live signal-bars icon in the topbar next to the user avatar, a live ping graph on hover, and a full-screen overlay when the connection drops.
