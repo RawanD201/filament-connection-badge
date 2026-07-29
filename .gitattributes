@@ -10,6 +10,7 @@
 /tests               export-ignore
 /phpunit.xml.dist    export-ignore
 /pint.json           export-ignore
+/phpstan.neon.dist   export-ignore
 /composer.lock       export-ignore
 /vendor              export-ignore
 /node_modules        export-ignore
