@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-07-31
+
+### Security
+
+- Pin GitHub Actions (`actions/checkout`, `shivammathur/setup-php`) to a commit SHA instead of a mutable tag.
+- Add Dependabot config for `composer` and `github-actions`, with a cooldown period before updates are opened.
+- Add `SECURITY.md` describing the heartbeat endpoint's threat surface and a private vulnerability disclosure process.
+
+### Changed
+
+- Exclude `phpstan.neon.dist` from the released dist archive via `.gitattributes`.
+
 ## [1.0.0] - 2026-04-14
 
 ### Added
